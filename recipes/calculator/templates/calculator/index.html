@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+</head>
+<body>
+    <h1> <a href="/">Вернуться на главную страницу </a></h1>
+    <h3> Для приготовления {{ portion }} порций понадобится: </h3>
+    {% for ingredient, amount in recipe.items %}
+        <p>{{ ingredient }}: {{ amount }}</p>
+    {% empty %}
+        <p>Такого рецепта не знаю :(</p>
+    {% endfor %}
+
+    <h2>Выберите количество порций</h2>
+    <br>
+    {% for a in qty %}
+        <a href="?item={{ item }}&qty={{ a }}"> [{{ a }}]  </a>
+    {% endfor %}
+</body>
+</html>
